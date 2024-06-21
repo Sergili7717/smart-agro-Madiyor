@@ -526,14 +526,19 @@ header {
   .products-wrap {
     display: flex;
     gap: 56px;
+    @media (max-width: 1470px) {
+      flex-wrap: wrap;
+      display: flex;
+      justify-content: center;
+      
+    }
 
-    .products-item {
+    & .products-item {
       position: relative;
       overflow: hidden;
       border-radius: 10px;
       width: 318px;
       height: 350px;
-
       & img {
         width: 100%;
         height: 100%;
@@ -584,11 +589,45 @@ header {
 }
 
 .agricult{
+  position: relative;
+}
 
+.agrocult-bg{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+}
+.agricult-left{
+  background-image: url(./images/icons/img/agrocult-left-bg.jpg);
+  width: 43.8%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.agricult-right{
+  flex-grow: 1;
+  background-color: #6D8C54;
+  position: relative;
+  & img{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+}
+.agrocult-content{
+  position: relative;
+  z-index: 10;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .agrocult-text{
   padding: 80px 0;
+  width: 730px;
   & h2{
     font-size: 20px;
     margin-bottom: 20px;
@@ -603,6 +642,18 @@ header {
     list-style: none;
   }
   & li{
+    position: relative;
+    padding-left: 120px;
+    &::before{
+      content: '';
+      display: inline-block;
+      width: 90px;
+      height: 90px;
+      background-color: #344C31;
+      border-radius: 50%;
+      position: absolute;
+      left: 0px;
+    }
     & h4{
       font-family: 'Livvic';
       font-weight: 600;
@@ -616,5 +667,50 @@ header {
       border-bottom: 1px solid rgba(255, 255, 255, 0.192);
       margin-bottom: 60px;
     }
+  }
+}
+.reviews{
+  overflow: hidden;
+  & h2{
+    font-size: 20px;
+  }
+  & h3{
+    font-size: 50px;
+    font-family: 'Livvic';
+    font-weight: bold;
+  }
+}
+.reviews-slider{
+  display: flex;
+  width: 600%;
+  animation: moveLeft 20s infinite linear;
+  &:hover{
+    animation-play-state: paused;
+  }
+}
+.reviews-items{
+  display: flex;
+}
+.review{
+  padding: 0 120px;
+  display: flex;
+  gap: 85px;
+  align-items: center;
+}
+.review-img{
+  min-width: 350px;
+  min-height: 350px;
+  max-width: 350px;
+  max-height: 350px;
+  background-color: #F7C35F;
+  border-radius: 50%;
+}
+
+@keyframes moveLeft{
+  0%{
+    transform: translateX(0%);
+  }
+  100%{
+    transform: translateX(-50%);
   }
 }
